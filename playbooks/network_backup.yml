@@ -40,6 +40,7 @@
       delegate_to: backup-server
       become: true
       run_once: true
+      become_method: sudo
 
     - name: save configuration to backup server
       copy:
@@ -47,6 +48,7 @@
         dest: "/backup/{{hostvars['backup-server'].datetime}}/"
       when: config_output is defined
       become: true
+      become_method: sudo
       delegate_to: backup-server
 
     - name: find backups
@@ -56,6 +58,7 @@
       register: backups
       run_once: true
       become: true
+      become_method: sudo
       delegate_to: backup-server
       delegate_facts: true
 
