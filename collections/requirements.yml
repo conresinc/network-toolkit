@@ -4,4 +4,3 @@ collections:
 - arista.eos
 - junipernetworks.junos
 - awx.awx
-- ansible.controller
