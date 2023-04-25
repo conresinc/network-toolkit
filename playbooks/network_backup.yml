@@ -73,5 +73,5 @@
         survey_enabled: true
         survey_spec: "{{ lookup('template', '{{ playbook_dir }}/../network_setup/templates/backup.j2') }}"
         validate_certs: no
-        execution_environment: "Default execution environment"
+        execution_environment: "ConRes Upgraded"
       run_once: true
