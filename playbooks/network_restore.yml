@@ -1,6 +1,6 @@
 ---
 - name: restore router configurations
-  hosts: all!backup-server
+  hosts: all:!backup-server
   gather_facts: no
 
   tasks:
