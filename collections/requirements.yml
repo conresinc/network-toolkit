@@ -4,3 +4,4 @@ collections:
 - ansible.utils
 - awx.awx
 - cisco.ios
+- ansible.controller
