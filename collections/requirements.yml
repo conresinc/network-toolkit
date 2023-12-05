@@ -1,6 +1,6 @@
 ---
 collections:
-- junipernetworks.junos
-- ansible.utils
-- cisco.ios
-- ansible.controller:4.4.8
+- name: junipernetworks.junos
+- name: ansible.utils
+- name: cisco.ios
+- name: ansible.controller
