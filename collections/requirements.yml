@@ -2,6 +2,5 @@
 collections:
 - junipernetworks.junos
 - ansible.utils
-- awx.awx
 - cisco.ios
-- ansible.controller
+- ansible.controller:4.4.8
