@@ -1,6 +1,6 @@
 ---
 collections:
 - junipernetworks.junos
-- ansible.controller
+- ansible.utils
 - awx.awx
 - cisco.ios
