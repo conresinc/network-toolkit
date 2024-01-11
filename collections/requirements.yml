@@ -1,6 +1,0 @@
----
-collections:
-- name: junipernetworks.junos
-- name: ansible.utils
-- name: cisco.ios
-- name: ansible.controller
