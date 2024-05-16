@@ -1,0 +1,19 @@
+# This task will backup the configuration
+ - name: Run configuration backup
+   panos_op:
+     provider: "{{ provider }}"
+      cmd: 'save'
+      file: 'config_backup'
+   register: backup_result
+
+- name: debug output
+  debug:
+    var: config_output.backup_path
+
+# This task removes the Current configuration... from the top of IOS routers show run
+- name: remove non config lines - regexp
+  lineinfile:
+    path: "{{ config_output.backup_path }}"
+    line: "Building configuration..."
+    state: absent
+  delegate_to: localhost
