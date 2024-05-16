@@ -1,10 +1,10 @@
 # This task will backup the configuration
- - name: Run configuration backup
-   panos_op:
-     provider: "{{ provider }}"
-      cmd: 'save'
-      file: 'config_backup'
-   register: backup_result
+- name: Export configuration
+  paloaltonetworks.panos.panos_export:
+    provider: '{{ provider }}'
+    category: 'configuration'
+    filename: 'running-config.xml'   
+  register: backup_result
 
 - name: debug output
   debug:
