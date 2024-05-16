@@ -5,7 +5,7 @@
   paloaltonetworks.panos.panos_import:
     provider: '{{ device }}'
     category: 'configuration'
-    filename: '/tmp/config.xml'
+    filename: "/tmp/{{ rollback_date }}/{{ inventory_hostname }}.txt"
   register: palo_restore_action
 
 - name: print to terminal window
