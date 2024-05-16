@@ -23,7 +23,7 @@
 
     - name: backup configuration
       include_role:
-        name: "../roles/backup"
+        name: "../roles/palo_backup"
       when: ansible_network_os is defined
 
     - name: create time stamp for play
@@ -66,14 +66,14 @@
       ansible.controller.job_template:
         name: "Network Automation - Restore"
         job_type: "run"
-        inventory: "{{ restore_inventory|default('network') }}"
-        project: "{{ restore_project|default('Network Toolkit') }}"
-        playbook: "{{ restores_playbook|default('playbooks/network_restore.yml') }}"
+        inventory: "{{ restore_inventory|default('paloalto') }}"
+        project: "{{ restore_project|default('Palo Alto Config Management') }}"
+        playbook: "{{ restores_playbook|default('playbooks/palo_restore.yml') }}"
         credentials:
-          - "{{ restore_credential|default('cisco') }}"
+          - "{{ restore_credential|default('paloalto') }}"
         survey_enabled: true
         survey_spec: "{{ lookup('template', '{{ playbook_dir }}/../network_setup/templates/backup.j2') }}"
         validate_certs: no
-        execution_environment: "ConRes Upgraded"
+        execution_environment: "Fox Corp Custom EE"
       delegate_to: localhost
       run_once: true
