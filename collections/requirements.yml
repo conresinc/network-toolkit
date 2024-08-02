@@ -1,6 +1,7 @@
 ---
 collections:
   - name: arista.eos # Requires netcommon >=2.5.1
+    version: 9.0.0
   - name: ansible.network # Requires utils >=2.2.0 and netcommon 2.1.0
   - name: ansible.netcommon # Required by network, >=2.2.0
   - name: ansible.utils # Second latest version, matches above reqs
