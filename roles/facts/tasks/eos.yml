@@ -1,6 +1,7 @@
 ---
 - name: gather arista eos facts
-  arista.eos.facts:
+  eos.facts:
+    provider: "{{arista_credentials}}"
     gather_subset: config
     gather_network_resources: "{{ network_resource | default('!bgp_global,!bgp_address_family') }}"
   vars:
