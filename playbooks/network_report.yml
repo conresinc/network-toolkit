@@ -17,3 +17,15 @@
     - name: build a report
       include_role:
         name: "../roles/build_report"
+
+    - name: Send email
+      community.general.mail:
+        host: smtp.gmail.com
+        port: 587  # Usually 25, 465, or 587
+        username: screwtherhino@gmail.com
+        password: 'mahj irxk prhj ctbv'
+        to: Zachary Thompson <zthompson@conres.com>
+        subject: "Azure Network Report"
+        body: "{{ report.j2 }}"
+        subtype: html
+        secure: starttls
