@@ -9,3 +9,4 @@ collections:
   - name: ansible.utils # Second latest version, matches above reqs
     version: 2.9.0
   - name: netbox.netbox  # Does not require dependency
+  - name: community.general
