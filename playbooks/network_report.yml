@@ -20,7 +20,7 @@
 
     - name: Template information for email report
       ansible.builtin.set_fact:
-        network_report: "{{ lookup('template', '../templates/report.j2') }}"
+        network_report: "{{ lookup('template', 'templates/report.j2') }}"
 
     - name: Send email
       community.general.mail:
