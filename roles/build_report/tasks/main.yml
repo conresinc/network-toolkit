@@ -1,5 +1,5 @@
 ---
 
-- name: display link to inventory report
-  debug:
-    var: report.j2
+#- name: display link to inventory report
+#  debug:
+#    var: report.j2
