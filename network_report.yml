@@ -16,7 +16,7 @@
 
     - name: build a report
       include_role:
-        name: "../roles/build_report"
+        name: "roles/build_report"
 
     - name: Template information for email report
       ansible.builtin.set_fact:
