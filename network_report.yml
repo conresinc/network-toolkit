@@ -37,3 +37,4 @@
         body: "{{ network_report }}"
         subtype: html
         secure: starttls
+      delegate_to: localhost
