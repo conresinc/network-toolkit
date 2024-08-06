@@ -30,6 +30,6 @@
         password: 'mahj irxk prhj ctbv'
         to: Zachary Thompson <zthompson@conres.com>
         subject: "Azure Network Report"
-        body: "{{ network_report.j2 }}"
+        body: "{{ network_report }}"
         subtype: html
         secure: starttls
