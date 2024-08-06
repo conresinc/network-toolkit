@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Network Device Report</title>
+    <title>Network Devices Report</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -29,10 +29,11 @@
     </style>
 </head>
 <body>
-    <h1>Network Device Report</h1>
+    <h1>Network Devices Report</h1>
 
+    {% for host, stdout_lines in eos_np_output.items() %}
     <div class="section">
-        <div class="section-title">Command Output</div>
+        <div class="section-title">{{ host }}</div>
         <table>
             <thead>
                 <tr>
@@ -47,7 +48,7 @@
                 </tr>
             </thead>
             <tbody>
-                {% for line in eos_np_output['stdout'][1:] %}
+                {% for line in stdout_lines[1:] %}
                 <tr>
                     {% for item in line.split() %}
                     <td>{{ item }}</td>
@@ -57,5 +58,7 @@
             </tbody>
         </table>
     </div>
+    {% endfor %}
 </body>
 </html>
+
