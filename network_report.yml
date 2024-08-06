@@ -8,15 +8,7 @@
       include_role:
         name: "roles/facts"
 
-- name: build report with facts
-  hosts: all
-  gather_facts: no
-
-  tasks:
-
-    - name: build a report
-      include_role:
-        name: "roles/build_report"
+  post_tasks:
 
     - name: Send email
       community.general.mail:
@@ -30,3 +22,4 @@
         subtype: html
         secure: starttls
       delegate_to: localhost
+      run_once: true
