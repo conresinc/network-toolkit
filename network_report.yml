@@ -18,14 +18,6 @@
       include_role:
         name: "roles/build_report"
 
-    - name: Template information for email report
-      ansible.builtin.set_fact:
-        network_report: "{{ lookup('template', 'templates/report.j2') }}"
-
-    - name: Debug fact
-      ansible.builtin.debug:
-          var: network_report 
-
     - name: Send email
       community.general.mail:
         host: smtp.gmail.com
@@ -34,7 +26,7 @@
         password: 'mahj irxk prhj ctbv'
         to: Zachary Thompson <zthompson@conres.com>
         subject: "Arista Network Report"
-        body: "{{ network_report }}"
+        body: "{{ lookup('template', 'templates/report.j2') }}"
         subtype: html
         secure: starttls
       delegate_to: localhost
