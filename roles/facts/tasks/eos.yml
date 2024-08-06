@@ -1,5 +1,14 @@
 ---
+- name: Get interface counters
+  arista.eos.eos_command:
+    commands: "show interfaces counters errors | nz"
+  register: eos_np_output
+
+- name: Debug interface
+  debug:
+    var: eos_np_output
+
 - name: gather arista eos facts
   arista.eos.eos_facts:
-    gather_subset: config
-    gather_network_resources: "{{ network_resource | default('!bgp_global,!bgp_address_family') }}"
+    gather_subset: all
+    #    gather_network_resources: "{{ network_resource | default('!bgp_global,!bgp_address_family') }}"
