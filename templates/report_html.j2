@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Report</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .section-title {
+            font-size: 1.2em;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Network Device Report</h1>
+
+    <div class="section">
+        <div class="section-title">{{ eos_np_output['invocation']['module_args']['commands'][0] }}</div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Changed</td>
+                    <td>{{ eos_np_output['changed'] }}</td>
+                </tr>
+                <tr>
+                    <td>Commands</td>
+                    <td>{{ eos_np_output['invocation']['module_args']['commands'] | join(', ') }}</td>
+                </tr>
+                <tr>
+                    <td>Interval</td>
+                    <td>{{ eos_np_output['invocation']['module_args']['interval'] }}</td>
+                </tr>
+                <tr>
+                    <td>Match</td>
+                    <td>{{ eos_np_output['invocation']['module_args']['match'] }}</td>
+                </tr>
+                <tr>
+                    <td>Retries</td>
+                    <td>{{ eos_np_output['invocation']['module_args']['retries'] }}</td>
+                </tr>
+                <tr>
+                    <td>Wait For</td>
+                    <td>{{ eos_np_output['invocation']['module_args']['wait_for'] }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="section-title">Command Output</div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Port</th>
+                    <th>FCS</th>
+                    <th>Align</th>
+                    <th>Symbol</th>
+                    <th>Rx</th>
+                    <th>Runts</th>
+                    <th>Giants</th>
+                    <th>Tx</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for line in eos_np_output['stdout_lines'][0] %}
+                {% if not loop.first %} <!-- Skip the header line -->
+                <tr>
+                    {% for item in line.split() %}
+                    <td>{{ item }}</td>
+                    {% endfor %}
+                </tr>
+                {% endif %}
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
+
