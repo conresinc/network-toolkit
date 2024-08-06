@@ -31,8 +31,9 @@
 <body>
     <h1>Network Device Report</h1>
 
+    {% for host in groups['all'] %}
     <div class="section">
-        <div class="section-title">Command Output</div>
+        <div class="section-title">{{ host }}</div>
         <table>
             <thead>
                 <tr>
