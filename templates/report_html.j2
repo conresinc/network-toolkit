@@ -31,7 +31,7 @@
 <body>
     <h1>Network Devices Report</h1>
 
-    {% for host, stdout_lines in eos_np_output.items() %}
+    {% for host in groups['all'] %}
     <div class="section">
         <div class="section-title">{{ host }}</div>
         <table>
@@ -48,7 +48,7 @@
                 </tr>
             </thead>
             <tbody>
-                {% for line in stdout_lines[1:] %}
+                {% for line in hostvars[host]['eos_np_output'][1:] %}
                 <tr>
                     {% for item in line.split() %}
                     <td>{{ item }}</td>
