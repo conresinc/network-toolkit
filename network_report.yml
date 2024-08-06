@@ -5,7 +5,7 @@
 
   tasks:
     - name: load read interfaces role
-      include_role:
+      import_role:
         name: "roles/facts"
 
   post_tasks:
