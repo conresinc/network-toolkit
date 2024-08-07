@@ -48,10 +48,10 @@
                 </tr>
             </thead>
             <tbody>
-                {% for line in eos_np_output['stdout'][1:] %}
+                {% for line in eos_np_output['stdout'][1:] | default ("0") %}
                 <tr>
                     {% for item in line.split() %}
-                    <td>{{ item | default("0") }}</td>
+		    <td>{{ item }}</td>
                     {% endfor %}
                 </tr>
                 {% endfor %}
