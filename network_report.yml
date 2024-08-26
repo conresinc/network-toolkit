@@ -6,19 +6,19 @@
   tasks:
     - name: Replace device configuration with provided configuration
       arista.eos.eos_acls:
-      config:
-        - afi: ipv4
-          acls:
-            - name: test1
-              aces:
-                - sequence: 35
-                  grant: permit
-                  protocol: ospf
-                  source:
-                    subnet_address: 20.0.0.0/8
-                  destination:
-                    any: true
-      state: replaced
+        config:
+          - afi: ipv4
+            acls:
+              - name: test1
+                aces:
+                  - sequence: 35
+                    grant: permit
+                    protocol: ospf
+                    source:
+                      subnet_address: 20.0.0.0/8
+                    destination:
+                      any: true
+        state: replaced
 
     - name: load read interfaces role
       import_role:
